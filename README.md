@@ -1,0 +1,4 @@
+Coins
+=====
+
+Minecraft modification.
