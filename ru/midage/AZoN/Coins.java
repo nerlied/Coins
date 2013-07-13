@@ -1,9 +1,8 @@
 package ru.midage.AZoN;
 
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
@@ -13,7 +12,8 @@ public class Coins {
 	@Instance(value="Coins")
 	public static Coins instance;
 	
-	@PreInit
+	/** Видите ли, теперь с 1.6.1 EventHandler */
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		/** Возьмем конфиг, предложенный форджем */
 		CoinsConfig.init(event.getSuggestedConfigurationFile());
@@ -21,7 +21,7 @@ public class Coins {
 		CoinsItems.init();
 	}
 	
-	@Init
+	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		/** Загружаем имена предметов */
 		CoinsItems.addNames();
